@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wingman.ai - Your AI Dating Coach</title>
+  <meta name="description" content="Upload a screenshot of your dating chat and get smart, UK-English replies and local date ideas. Always free to try with starter credits." />
+  <meta property="og:title" content="Wingman.ai - Your AI Dating Coach" />
+  <meta property="og:description" content="Get 3 to 5 natural reply options and local date ideas from a single screenshot." />
+  <meta property="og:image" content="https://storage.googleapis.com/aistudio-project-files/55a9b895-5f56-4217-a16f-d1222e039433/Wingman-Screenshot.png" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8',
+              500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 font-semibold">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-brand-600 text-white">W</span>
+        <span>Wingman.ai</span>
+      </a>
+      <button id="navToggle" class="md:hidden p-2 rounded border" aria-expanded="false" aria-controls="mainNav">Menu</button>
+      <nav id="mainNav" class="hidden md:flex items-center gap-6">
+        <a href="#features" class="hover:text-brand-700">Features</a>
+        <a href="#how" class="hover:text-brand-700">How it works</a>
+        <a href="#pricing" class="hover:text-brand-700">Pricing</a>
+        <a href="#faq" class="hover:text-brand-700">FAQ</a>
+        <a href="index.html" class="ml-2 inline-flex items-center justify-center px-4 py-2 rounded-2xl bg-brand-700 text-white hover:bg-brand-800">Launch app</a>
+      </nav>
+    </div>
+    <div id="mainNavMobile" class="md:hidden hidden border-t">
+      <div class="px-4 py-3 grid gap-3 bg-white">
+        <a href="#features" class="hover:text-brand-700">Features</a>
+        <a href="#how" class="hover:text-brand-700">How it works</a>
+        <a href="#pricing" class="hover:text-brand-700">Pricing</a>
+        <a href="#faq" class="hover:text-brand-700">FAQ</a>
+        <a href="index.html" class="inline-flex items-center justify-center px-4 py-2 rounded-2xl bg-brand-700 text-white hover:bg-brand-800">Launch app</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Your AI dating coach for real conversations</h1>
+        <p class="mt-4 text-lg text-slate-700">Upload a screenshot of your dating chat, then get natural UK-English replies and smart date ideas near you. Always free to try with starter credits.</p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a href="index.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-brand-700 text-white hover:bg-brand-800">Try free - 30 credits</a>
+          <a href="#how" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl border bg-white hover:bg-slate-50">See how it works</a>
+        </div>
+        <div class="mt-6 text-sm text-slate-600">Respectful by design. No creepy lines. Safety first.</div>
+      </div>
+      <div class="relative">
+        <img src="https://storage.googleapis.com/aistudio-project-files/55a9b895-5f56-4217-a16f-d1222e039433/Wingman-Screenshot.png" alt="Wingman.ai app screenshot" class="w-full rounded-2xl shadow-2xl border" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-14 bg-white border-t">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">Everything you need to keep the chat flowing</h2>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Feature icon="💬" title="Multi style replies" desc="Get 3 to 5 options that match your vibe, for example playful, sincere or curious." />
+        <Feature icon="📷" title="Screenshot understanding" desc="The AI reads the latest messages, tone and hints like food or hobbies." />
+        <Feature icon="📍" title="Date ideas near you" desc="If she mentions beef or nature, get steak spots, parks or upcoming events close by." />
+        <Feature icon="🪙" title="Fair credits" desc="AI uses 1 credit per screenshot. Restaurants use 3, parks 2, events 1. Repeats within a day are free from cache." />
+        <Feature icon="🔒" title="Privacy minded" desc="No account needed to try. Do not store screenshots longer than needed in production." />
+        <Feature icon="🇬🇧" title="British English" desc="Polite, down to earth tone. No over the top lines, no risky suggestions." />
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-14">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">How it works</h2>
+      <ol class="mt-8 grid md:grid-cols-4 gap-6">
+        <li class="p-5 rounded-2xl bg-white shadow border">
+          <div class="text-sm text-slate-500">Step 1</div>
+          <div class="mt-1 font-semibold">Upload a screenshot</div>
+          <p class="mt-2 text-slate-700">JPG or PNG. The app extracts only what it needs.</p>
+        </li>
+        <li class="p-5 rounded-2xl bg-white shadow border">
+          <div class="text-sm text-slate-500">Step 2</div>
+          <div class="mt-1 font-semibold">Get reply ideas</div>
+          <p class="mt-2 text-slate-700">Three to five short suggestions in different styles.</p>
+        </li>
+        <li class="p-5 rounded-2xl bg-white shadow border">
+          <div class="text-sm text-slate-500">Step 3</div>
+          <div class="mt-1 font-semibold">Add your location</div>
+          <p class="mt-2 text-slate-700">Optional. Find restaurants, parks and events nearby.</p>
+        </li>
+        <li class="p-5 rounded-2xl bg-white shadow border">
+          <div class="text-sm text-slate-500">Step 4</div>
+          <div class="mt-1 font-semibold">Pick and send</div>
+          <p class="mt-2 text-slate-700">Copy the line you like. Keep the conversation moving.</p>
+        </li>
+      </ol>
+      <div class="mt-8">
+        <a href="index.html" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-brand-700 text-white hover:bg-brand-800">Start free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing - credits -->
+  <section id="pricing" class="py-14 bg-white border-t">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">Simple credits, no subscription</h2>
+      <p class="mt-2 text-slate-700">You get 30 starter credits when you sign up, then 15 free every month. Buy extra packs any time.</p>
+      <div class="mt-8 grid md:grid-cols-4 gap-6">
+        <div class="p-5 rounded-2xl border bg-white">
+          <div class="text-sm text-slate-500">Free</div>
+          <div class="mt-1 text-xl font-semibold">Starter pot</div>
+          <p class="mt-2 text-slate-700">30 credits on sign up. Try the full app without a card.</p>
+        </div>
+        <div class="p-5 rounded-2xl border bg-white">
+          <div class="text-sm text-slate-500">Pack</div>
+          <div class="mt-1 text-xl font-semibold">Taster - £0.99</div>
+          <p class="mt-2 text-slate-700">20 credits. Good for a weekend.</p>
+        </div>
+        <div class="p-5 rounded-2xl border bg-white">
+          <div class="text-sm text-slate-500">Pack</div>
+          <div class="mt-1 text-xl font-semibold">Starter - £2.99</div>
+          <p class="mt-2 text-slate-700">60 credits. Most popular for regular use.</p>
+        </div>
+        <div class="p-5 rounded-2xl border bg-white">
+          <div class="text-sm text-slate-500">Pack</div>
+          <div class="mt-1 text-xl font-semibold">Regular - £7.99</div>
+          <p class="mt-2 text-slate-700">200 credits. Best value for power users.</p>
+        </div>
+      </div>
+      <ul class="mt-6 text-sm text-slate-700 list-disc pl-5">
+        <li>AI analysis costs 1 credit per screenshot.</li>
+        <li>Restaurant search costs 3 credits, parks cost 2, events cost 1.</li>
+        <li>Repeat the same search in the same area within 24 hours for free.</li>
+        <li>If we return zero results, we will refund the credits automatically.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Social proof -->
+  <section class="py-14">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">What early users say</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <blockquote class="p-5 rounded-2xl bg-white border shadow">
+          <p class="">The suggestions feel natural, not cheesy. Helped me set up a coffee in two messages.</p>
+          <div class="mt-3 text-sm text-slate-500">Tom, Manchester</div>
+        </blockquote>
+        <blockquote class="p-5 rounded-2xl bg-white border shadow">
+          <p class="">Love the local ideas. It pulled a great steak place five minutes away.</p>
+          <div class="mt-3 text-sm text-slate-500">Luke, Bristol</div>
+        </blockquote>
+        <blockquote class="p-5 rounded-2xl bg-white border shadow">
+          <p class="">The tone is spot on. British without being cringe.</p>
+          <div class="mt-3 text-sm text-slate-500">Aaron, London</div>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-14 bg-white border-t">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold">Frequently asked questions</h2>
+      <div class="mt-6 grid gap-4">
+        <details class="p-4 rounded-2xl border bg-white">
+          <summary class="font-medium cursor-pointer">Is my screenshot safe</summary>
+          <p class="mt-2 text-slate-700">For the prototype we process screenshots in your browser where possible. In production you can enable a privacy mode that avoids storing raw images or deletes them quickly after analysis.</p>
+        </details>
+        <details class="p-4 rounded-2xl border bg-white">
+          <summary class="font-medium cursor-pointer">What does the AI refuse to do</summary>
+          <p class="mt-2 text-slate-700">It will not generate disrespectful, manipulative or sexual content. It will encourage consent, safety and honesty.</p>
+        </details>
+        <details class="p-4 rounded-2xl border bg-white">
+          <summary class="font-medium cursor-pointer">Do I need an account</summary>
+          <p class="mt-2 text-slate-700">You can try it free without an account. Create one to save your location and preferences and to buy credit packs.</p>
+        </details>
+        <details class="p-4 rounded-2xl border bg-white">
+          <summary class="font-medium cursor-pointer">Can I use it on any dating app</summary>
+          <p class="mt-2 text-slate-700">Yes. If you can screenshot your chat, Wingman.ai can help.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="p-8 rounded-3xl bg-gradient-to-r from-brand-600 to-brand-800 text-white grid md:grid-cols-2 gap-6 items-center">
+        <div>
+          <h3 class="text-2xl font-bold">Ready to try it</h3>
+          <p class="mt-2 text-brand-100">Start with 30 free credits. No subscription. No fuss.</p>
+        </div>
+        <div class="md:text-right">
+          <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-white text-brand-800 hover:bg-brand-50">Launch app</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t bg-white">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6 items-center">
+      <div class="text-sm text-slate-600">© <span id="year"></span> Wingman.ai. All rights reserved.</div>
+      <div class="text-sm text-slate-600 flex gap-4">
+        <a href="#" class="hover:text-brand-700">Privacy</a>
+        <a href="#" class="hover:text-brand-700">Terms</a>
+        <a href="#" class="hover:text-brand-700">Contact</a>
+      </div>
+      <div class="md:text-right text-sm text-slate-600">Built with Gemini. British English by default.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const t = document.getElementById('navToggle');
+    const m = document.getElementById('mainNavMobile');
+    t.addEventListener('click', () => {
+      const open = m.classList.contains('hidden') === false;
+      m.classList.toggle('hidden');
+      t.setAttribute('aria-expanded', String(!open));
+    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Simple inline component helper for features -->
+  <script>
+    function Feature(props) {
+      return (
+        `<div class=\"p-5 rounded-2xl bg-white border shadow\">` +
+          `<div class=\"text-2xl\">${props.icon}</div>` +
+          `<div class=\"mt-2 font-semibold\">${props.title}</div>` +
+          `<p class=\"mt-1 text-slate-700\">${props.desc}</p>` +
+        `</div>`
+      );
+    }
+    // Hydrate feature grid with static HTML for SEO and simplicity
+    const grid = document.querySelector('#features .grid');
+    if (grid) {
+      const items = [
+        { icon: '💬', title: 'Multi style replies', desc: 'Get 3 to 5 options that match your vibe, for example playful, sincere or curious.' },
+        { icon: '📷', title: 'Screenshot understanding', desc: 'The AI reads the latest messages, tone and hints like food or hobbies.' },
+        { icon: '📍', title: 'Date ideas near you', desc: 'If she mentions beef or nature, get steak spots, parks or upcoming events close by.' },
+        { icon: '🪙', title: 'Fair credits', desc: 'AI uses 1 credit per screenshot. Restaurants use 3, parks 2, events 1. Repeats within a day are free from cache.' },
+        { icon: '🔒', title: 'Privacy minded', desc: 'No account needed to try. Do not store screenshots longer than needed in production.' },
+        { icon: '🇬🇧', title: 'British English', desc: 'Polite, down to earth tone. No over the top lines, no risky suggestions.' }
+      ];
+      grid.innerHTML = items.map(Feature).join('');
+    }
+  </script>
+</body>
+</html>
