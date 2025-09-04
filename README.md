@@ -1,28 +1,191 @@
-heres the readme # Wingman.ai - Your AI Dating Coach Wingman.ai is an AI-powered web application designed to help users navigate the world of online dating. By uploading a screenshot of a dating app conversation, users receive intelligent, context-aware reply suggestions and personalized date ideas, helping them keep the conversation engaging and fun. ![Wingman.ai Screenshot](https://storage.googleapis.com/aistudio-project-files/55a9b895-5f56-4217-a16f-d1222e039433/Wingman-Screenshot.png) --- ## ✨ Core Features * **AI Chat Analysis**: Upload a screenshot, and the Gemini-powered AI analyzes the tone, context, and interests mentioned in the conversation. * **Multi-Style Reply Suggestions**: Get 3-5 distinct reply options (e.g., playful, sincere, curious) to match your desired style. * **Smart Date Ideas**: Receive tailored date ideas based on interests identified in the chat, along with the user's specified location and budget. * **Conversational Follow-ups**: Continue the conversation by selecting a date idea, inputting the other person's response, and getting a fresh set of AI replies. * **Conversation History**: Automatically saves previous analyses to localStorage, allowing you to revisit them at any time. * **Credit-Based System**: A freemium model where users get starter credits and can top up via simulated purchases, making the app ready for monetization. * **Simulated Payment Flow**: A realistic payment modal appears for purchasing credit packs, preparing the UI for a real payment gateway integration. ## 🛠️ Tech Stack * **Frontend**: React, TypeScript, Tailwind CSS * **AI**: Google Gemini API (gemini-2.5-flash) * **State Management**: React Hooks (useState, useCallback, custom hooks for credits and history) * **Client-side Persistence**: Browser localStorage is used to persist the credit balance and conversation log across sessions. ## 🚀 Getting Started This project is currently a client-side-only application. To set it up and run it, you'll need to connect it to the Google Gemini API. ### Prerequisites * A modern web browser. * A Google Gemini API Key. ### Setup 1. **Clone the repository:**
-bash
-    git clone https://github.com/your-username/wingman-ai.git
-    cd wingman-ai
-2. **API Key Configuration:** This project is set up to use an environment variable process.env.API_KEY for the Google Gemini API key. In a local development environment (using a tool like Vite or Create React App), you would typically create a .env.local file in the root of the project:
-API_KEY=YOUR_GEMINI_API_KEY
-*Note: As this is a frontend-only prototype, remember to never expose your API key in publicly accessible client-side code. The current setup assumes a build environment that handles environment variables securely.* 3. **Run the application:** Open the index.html file in your browser, or serve the project directory using a local web server. For a more robust setup, you can integrate a build tool like Vite:
-bash
-    # Install Vite
-    npm install -g vite
+# ChatGent
 
-    # Serve the project
-    vite
-## 📂 Project Structure
-/
-├── public/
-├── src/
-│   ├── components/      # Reusable React components (Header, UploadForm, ResultsDisplay, etc.)
-│   ├── hooks/           # Custom hooks for state logic (useCredits, useConversationLog)
-│   ├── services/        # API interaction logic (geminiService.ts)
-│   ├── App.tsx          # Main application component and state management
-│   ├── constants.ts     # System prompts, credit costs, and other constants
-│   ├── index.tsx        # React app entry point
-│   ├── types.ts         # TypeScript type definitions
-├── index.html           # Main HTML file
-├── metadata.json        # Project metadata
-├── README.md            # This file
-## 🔮 Future Enhancements This prototype lays a solid foundation. Here are some potential next steps to turn it into a production-ready application: * **Backend Integration**: Develop a backend (e.g., Node.js/Express, or using Next.js API Routes) to securely handle API keys, manage user data, and process payments. * **User Authentication**: Implement a user authentication system (e.g., Firebase Auth, NextAuth) to manage user profiles, credits, and conversation history in a database. * **Database**: Integrate a database like Firestore or Supabase to persistently store user data. * **Stripe Integration**: Replace the simulated payment modal with a real payment gateway using Stripe to handle credit pack purchases. * **Backend Caching**: Implement caching on the server-side for repeated API calls to reduce costs and improve response times. * **Production Build Setup**: Configure a robust build and deployment pipeline using a tool like Vite, Webpack, or a framework like Next.js 
+Your AI dating coach. Upload a screenshot of your dating app chat and get natural UK‑English replies and smart date ideas near you. ChatGent is built on Google Gemini and a simple credit system so there is no subscription.
+
+![Screenshot](https://storage.googleapis.com/aistudio-project-files/55a9b895-5f56-4217-a16f-d1222e039433/Wingman-Screenshot.png)
+
+---
+
+## Features
+
+* **Screenshot understanding**: send a JPG or PNG and the AI extracts the recent context, tone and interests.
+* **Multi‑style replies**: 3 to 5 short options, for example playful, sincere or curious.
+* **Local date ideas**: optional search for restaurants, parks and events near a saved location.
+* **Credit system**: starter credits for free use, then top up with packs. Repeated searches in the same area within 24 hours do not spend more credits.
+* **Respect and safety**: British English tone, avoids manipulative or sexual content, encourages consent and honesty.
+
+---
+
+## Tech stack
+
+* **Framework**: Next.js with React and TypeScript
+* **UI**: Tailwind CSS
+* **AI**: Google Gemini (1.5 Flash or newer)
+* **Search providers**: Google Places API for restaurants and parks, Ticketmaster Discovery for events (optional)
+* **Payments**: Stripe Checkout for one‑off credit packs (optional)
+* **Storage**: swap the in‑memory credit ledger for Firestore, Supabase or Postgres in production
+
+---
+
+## Architecture
+
+* `pages/api/analyse.ts` calls Gemini with the image and returns structured JSON: reply suggestions, interests and search intents.
+* `pages/api/places.ts` and `pages/api/events.ts` perform optional local searches and charge credits only on successful results.
+* `lib/credits.ts` implements a simple ledger with idempotency. Replace with your database adapter before launch.
+* `pages/index.tsx` is the minimal web app. `landing.html` (or your chosen route) is the marketing page.
+
+---
+
+## Getting started
+
+### Prerequisites
+
+* Node 18 or newer
+* A Google Gemini API key
+* A Google Maps Platform key with Places enabled (optional but recommended)
+* A Ticketmaster API key for events (optional)
+* Stripe account and Price IDs if you want real payments (optional)
+
+### 1. Clone and install
+
+```bash
+git clone https://github.com/your-username/chatgent.git
+cd chatgent
+npm install
+```
+
+### 2. Configure environment
+
+Create `.env.local` in the project root:
+
+```dotenv
+# Gemini
+GEMINI_API_KEY=your_gemini_key
+
+# Places and events (optional)
+GOOGLE_MAPS_API_KEY=your_google_maps_key
+TICKETMASTER_API_KEY=your_ticketmaster_key
+
+# Stripe (optional if selling credits)
+STRIPE_SECRET_KEY=sk_live_or_test
+STRIPE_WEBHOOK_SECRET=whsec_...
+# Use your Stripe Price IDs for each pack
+NEXT_PUBLIC_PACK_TASTER=price_...
+NEXT_PUBLIC_PACK_STARTER=price_...
+NEXT_PUBLIC_PACK_REGULAR=price_...
+NEXT_PUBLIC_PACK_PRO=price_...
+```
+
+Notes:
+
+* Do not commit `.env.local` to version control.
+* If you see code referencing `MAPS_API_KEY`, set it to the same value as `GOOGLE_MAPS_API_KEY` or update the code to use a single name.
+
+### 3. Run the dev server
+
+```bash
+npm run dev
+# open http://localhost:3000
+```
+
+### 4. Stripe webhook for local testing (optional)
+
+If you enable real purchases, run an HTTPS tunnel and forward the webhook:
+
+```bash
+# example with Stripe CLI
+stripe listen --forward-to localhost:3000/api/billing/webhook
+```
+
+Create four Prices in Stripe for the credit packs and paste the IDs into your env file. The webhook grants credits after payment.
+
+---
+
+## Credit system defaults
+
+* Starter credits on sign up: 30
+* Monthly free top up: 15 per month
+* Streak bonus: 1 per day, up to 5 per week
+* Costs per action: AI analysis 1, restaurant 3, park 2, event 1
+* Cache rule: repeating the same keyword in the same area within 24 hours is free
+* Refund rule: if a search returns zero results the debit is reversed automatically
+
+These values are easy to change in `lib/credits.ts` and the UI copy.
+
+---
+
+## Commands
+
+```json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
+```
+
+---
+
+## Project structure
+
+```
+chatgent/
+├─ pages/
+│  ├─ index.tsx              # App UI
+│  ├─ api/
+│  │  ├─ analyse.ts          # Gemini image analysis
+│  │  ├─ places.ts           # Restaurants and parks
+│  │  ├─ events.ts           # Events search (optional)
+│  │  └─ billing/
+│  │     ├─ create-checkout-session.ts
+│  │     └─ webhook.ts
+├─ components/               # UI bits like Balance, BuyCredits, CostPill
+├─ lib/
+│  ├─ credits.ts             # Credit ledger abstraction
+│  ├─ geo.ts                 # Helpers for location
+│  └─ types.ts               # Shared types
+├─ public/
+├─ landing.html              # Marketing page (dark gradient background)
+└─ README.md
+```
+
+---
+
+## Privacy and safety
+
+* Avoid storing raw screenshots unless absolutely necessary. If you must, encrypt at rest and delete quickly.
+* Redact e‑mail addresses and phone numbers in logs and prompts.
+* The model should refuse disrespectful, manipulative or sexual content and encourage consent and safety.
+
+---
+
+## Deployment
+
+* **Vercel**: import the repo, set environment variables in Project Settings, then deploy.
+* **Render, Fly.io or Railway**: create a service, add env vars, run `npm run start` after `npm run build`.
+* Add a cron or scheduled job to run the monthly credit top up endpoint.
+
+---
+
+## Roadmap
+
+* Proper database store for credits and user profiles
+* Sign in with Google or Apple
+* Feedback buttons to rate suggestions and improve prompts
+* More providers for events and experiences
+* In‑app A/B tests for credit costs and pack pricing
+
+---
+
+## Contributing
+
+Issues and pull requests are welcome. Please keep the tone and copy British and respectful.
+
+---
+
+## Licence
+
+MIT. See `LICENCE` for details.
